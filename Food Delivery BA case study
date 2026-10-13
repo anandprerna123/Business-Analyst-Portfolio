@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Self-driven Business Analysis case study: food delivery ordering and payment workflow.">
+<title>Food Delivery Order & Payment System | BA Case Study</title>
+<style>
+:root{--ink:#1d3029;--muted:#61716a;--paper:#f7f5ef;--green:#315d4b;--pale:#e7eee8;--line:#dce2db;--gold:#dba96a}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{width:min(1050px,calc(100% - 34px));margin:auto}a{color:var(--green)}header{border-bottom:1px solid var(--line);padding:20px 0}.nav{display:flex;justify-content:space-between;gap:15px}.nav a{text-decoration:none;font-weight:750}
+.hero{padding:65px 0 40px}.eyebrow,.label{color:var(--green);font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+h1{font-size:clamp(2.2rem,5vw,4rem);line-height:1.08;letter-spacing:-.05em;max-width:850px;margin:12px 0 18px}.lead{font-size:1.12rem;color:var(--muted);max-width:780px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}.tag{background:var(--pale);border:1px solid #cad8cd;border-radius:30px;padding:5px 11px;font-size:.83rem;font-weight:650}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.card{background:white;border:1px solid var(--line);border-radius:16px;padding:22px;margin-bottom:16px}.card h2,.card h3{margin:0 0 9px;letter-spacing:-.025em}.card p{color:var(--muted)}section{padding:20px 0}.section-title{font-size:clamp(1.5rem,3vw,2rem);letter-spacing:-.04em;margin:0 0 6px}.sub{color:var(--muted);margin-top:0}
+ul{padding-left:21px}li{margin:5px 0}.statgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.stat{background:#f7f8f3;border-radius:11px;padding:13px}.stat strong,.stat span{display:block}.stat span{font-size:.82rem;color:var(--muted)}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin:15px 0}.step{flex:1 1 120px;text-align:center;border:1px solid var(--line);background:#f8f8f4;border-radius:10px;padding:12px;font-weight:700;font-size:.9rem}.arrow{color:var(--gold);font-weight:900}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:white}table{width:100%;min-width:620px;border-collapse:collapse;font-size:.91rem}th,td{text-align:left;vertical-align:top;padding:12px 14px;border-bottom:1px solid var(--line)}th{background:#eef2ec;font-size:.82rem}tr:last-child td{border:0}
+code{background:#edf0ea;padding:2px 5px;border-radius:4px}pre{overflow:auto;background:#203029;color:#f1f6f1;padding:18px;border-radius:12px;line-height:1.55}.note{background:#fff9ef;border-left:4px solid var(--gold);padding:16px 18px;border-radius:0 10px 10px 0}
+.button{display:inline-block;background:var(--green);color:white;text-decoration:none;border-radius:25px;padding:10px 15px;font-weight:750;margin-top:8px}.footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:.88rem}
+@media(max-width:720px){.grid,.grid3{grid-template-columns:1fr}.hero{padding-top:44px}.card{padding:18px}.nav{flex-wrap:wrap}}
+</style></head>
+<body>
+<header><div class="wrap nav"><a href="../../index.html">BA Portfolio</a><a href="../../index.html">← Back to portfolio</a></div></header>
+<main>
+<div class="wrap hero">
+<div class="eyebrow">Business Analysis · Self-driven case study</div>
+<h1>Food Delivery Order &amp; Payment System</h1>
+<p class="lead">A case study exploring how clearer requirements and a more reliable ordering and payment workflow could reduce customer confusion, payment-related drop-offs, and avoidable support requests.</p>
+<div class="tags"><span class="tag">Requirements Analysis</span><span class="tag">BRD / FRD</span><span class="tag">User Stories</span><span class="tag">Process Mapping</span><span class="tag">UAT</span><span class="tag">REST API / JSON</span><span class="tag">SQL &amp; Power BI concepts</span></div>
+<div class="grid" style="margin-top:24px">
+<div class="card"><div class="label">Project summary</div><h2>Business problem</h2><p>When a payment fails, customers may be unsure whether an order was placed. Support teams also need a clear way to identify payment and order statuses. This case study defines a proposed workflow for payment handling, order confirmation, tracking and refunds.</p><p><strong>My approach:</strong> define the problem and scope, identify stakeholders, document business rules, write user stories, map the process and outline UAT scenarios.</p></div>
+<div class="card"><div class="label">At a glance</div><div class="statgrid"><div class="stat"><strong>Role</strong><span>BA case study</span></div><div class="stat"><strong>Domain</strong><span>Food delivery</span></div><div class="stat"><strong>Focus</strong><span>Order &amp; payment</span></div><div class="stat"><strong>Outputs</strong><span>Requirements &amp; test cases</span></div></div></div>
+</div></div>
+<section class="wrap"><h2 class="section-title">1. Objectives and scope</h2><p class="sub">Keep the solution focused on the customer journey from cart to confirmation and status updates.</p><div class="grid">
+<div class="card"><h3>Business objectives</h3><ul><li>Make payment outcomes clear to customers.</li><li>Define when an order can be sent to a restaurant.</li><li>Provide consistent order-status updates.</li><li>Make cancellation and refund handling easier to track.</li></ul></div>
+<div class="card"><h3>Scope boundaries</h3><p><strong>In scope:</strong> menu browsing, cart, checkout, UPI/card/COD payment, confirmation, tracking, cancellation and refund status.</p><p><strong>Out of scope:</strong> restaurant onboarding, delivery routing algorithms, payroll and accounting.</p></div></div></section>
+<section class="wrap"><h2 class="section-title">2. Stakeholder analysis</h2><p class="sub">Stakeholder needs inform the requirements and acceptance criteria.</p><div class="tablewrap"><table><thead><tr><th>Stakeholder</th><th>Primary need</th><th>BA consideration</th></tr></thead><tbody>
+<tr><td>Customer</td><td>Clear payment outcome and order status</td><td>Readable messages, retry path, order history</td></tr>
+<tr><td>Restaurant partner</td><td>Receive valid orders without delay</td><td>Send order after the required payment condition</td></tr>
+<tr><td>Delivery partner</td><td>Accurate delivery and order details</td><td>Reliable status and address data</td></tr>
+<tr><td>Payment gateway</td><td>Secure transaction processing</td><td>Handle success, failure, pending and timeout responses</td></tr>
+<tr><td>Product / operations</td><td>Fewer complaints and better completion rates</td><td>Track failure reasons and order funnel metrics</td></tr></tbody></table></div></section>
+<section class="wrap"><h2 class="section-title">3. Key business rules</h2><p class="sub">Illustrative rules for the proposed solution; validate them with stakeholders before implementation.</p><div class="grid">
+<div class="card"><h3>BR-01 · Restaurant availability</h3><p>An order cannot be submitted when the restaurant is closed or an item is unavailable.</p></div>
+<div class="card"><h3>BR-02 · Payment confirmation</h3><p>For prepaid orders, send the order to the restaurant only after payment is confirmed. COD follows its approved path.</p></div>
+<div class="card"><h3>BR-03 · Failed payment</h3><p>Show a clear outcome and allow retry or another payment method. Retry limits must be agreed with product and payment teams.</p></div>
+<div class="card"><h3>BR-04 · Refund tracking</h3><p>For an eligible cancellation, create a refund request and show its status. Timing depends on provider rules and policy.</p></div></div></section>
+<section class="wrap"><h2 class="section-title">4. AS-IS vs TO-BE process</h2><p class="sub">A high-level view of the problem and proposed improvement.</p><div class="grid">
+<div class="card"><div class="label">AS-IS · Problem state</div><div class="flow"><div class="step">Customer checks out</div><div class="arrow">→</div><div class="step">Payment fails</div><div class="arrow">→</div><div class="step">Unclear outcome</div></div><p>Potential gap: the customer may not know whether to retry, and support may need to investigate manually.</p></div>
+<div class="card"><div class="label">TO-BE · Proposed state</div><div class="flow"><div class="step">Customer checks out</div><div class="arrow">→</div><div class="step">Payment result checked</div><div class="arrow">→</div><div class="step">Confirm or offer retry</div></div><p>Improvement: show clear status, prevent duplicate orders and send the order when the applicable payment condition is met.</p></div></div></section>
+<section class="wrap"><h2 class="section-title">5. Sample user stories</h2><p class="sub">Stories capture user needs; acceptance criteria make expected behaviour testable.</p><div class="grid">
+<div class="card"><div class="label">US-01 · Cart</div><h3>Review cart before checkout</h3><p><em>As a customer, I want to add menu items to my cart so that I can review quantities and prices before payment.</em></p><ul><li>Available items are added with correct price and quantity.</li><li>Changing quantity recalculates the total.</li><li>Cart follows the product rule for items from different restaurants.</li></ul></div>
+<div class="card"><div class="label">US-02 · Payment</div><h3>Know whether payment succeeded</h3><p><em>As a customer, I want a clear payment result so that I know whether my order has been placed.</em></p><ul><li>On success, show confirmation and order ID.</li><li>On failure, show a clear message and retry/alternate method.</li><li>Pending payments do not create duplicate orders.</li></ul></div>
+<div class="card"><div class="label">US-03 · Tracking</div><h3>Track order progress</h3><p><em>As a customer, I want to view my order status so that I understand delivery progress.</em></p><ul><li>Display the latest valid status.</li><li>Trigger configured notifications for key status changes.</li></ul></div>
+<div class="card"><div class="label">US-04 · Restaurant</div><h3>Receive confirmed order details</h3><p><em>As a restaurant partner, I want valid order details so that I can begin preparation without confusion.</em></p><ul><li>Display items, quantities and special instructions.</li><li>Do not send a prepaid order until payment confirmation.</li></ul></div></div></section>
+<section class="wrap"><h2 class="section-title">6. Data mapping and API understanding</h2><p class="sub">Illustrative mapping only. Engineering would confirm final field names, types and schemas.</p><div class="tablewrap"><table><thead><tr><th>Business field</th><th>Example system field</th><th>Type</th><th>Purpose</th></tr></thead><tbody>
+<tr><td>Order identifier</td><td><code>order_id</code></td><td>String</td><td>Unique order reference</td></tr><tr><td>Customer identifier</td><td><code>customer_id</code></td><td>String</td><td>Links order to customer</td></tr><tr><td>Items</td><td><code>items[]</code></td><td>Array</td><td>Item ID, quantity and price</td></tr><tr><td>Payment status</td><td><code>payment_status</code></td><td>Enum</td><td>SUCCESS, FAILED or PENDING</td></tr><tr><td>Order status</td><td><code>order_status</code></td><td>Enum</td><td>Tracks order lifecycle</td></tr></tbody></table></div>
+<h3 style="margin-top:22px">Example JSON payload</h3><pre><code>{
+  "order_id": "ORD12345",
+  "customer_id": "CUST789",
+  "items": [
+    { "item_id": "ITM001", "qty": 2, "price": 150 }
+  ],
+  "payment_status": "SUCCESS",
+  "order_status": "CONFIRMED"
+}</code></pre><div class="note"><strong>Technical BA perspective:</strong> clarify field meaning, allowed values, validation rules, error scenarios and dependencies with engineering. This example is not a live API integration.</div></section>
+<section class="wrap"><h2 class="section-title">7. UAT test scenarios</h2><p class="sub">UAT checks whether the solution meets agreed business requirements from an end-user perspective.</p><div class="tablewrap"><table><thead><tr><th>ID</th><th>Scenario</th><th>Expected result</th></tr></thead><tbody>
+<tr><td>UAT-01</td><td>Checkout while restaurant is closed</td><td>Checkout is blocked and a clear message appears.</td></tr><tr><td>UAT-02</td><td>Payment fails</td><td>Failure is shown; retry or alternate payment option is available per policy.</td></tr><tr><td>UAT-03</td><td>Payment is pending and customer retries</td><td>System checks transaction status and prevents duplicate handling.</td></tr><tr><td>UAT-04</td><td>Eligible paid order is cancelled</td><td>Refund request is created and its status is visible.</td></tr><tr><td>UAT-05</td><td>Order status changes</td><td>Latest valid status appears and configured notification is triggered.</td></tr></tbody></table></div></section>
+<section class="wrap"><h2 class="section-title">8. Success measures to validate</h2><p class="sub">These are proposed KPIs, not measured results. A real implementation needs a baseline and post-launch data.</p><div class="grid3">
+<div class="card"><h3>Checkout conversion</h3><p>Share of checkout sessions resulting in a completed order.</p></div><div class="card"><h3>Payment failure rate</h3><p>Share of payment attempts that fail, segmented by method and reason.</p></div><div class="card"><h3>Support contact rate</h3><p>Payment/order-related support contacts per defined number of orders.</p></div></div></section>
+<section class="wrap"><h2 class="section-title">9. What this case study demonstrates</h2><div class="note">This self-driven case study demonstrates my approach to problem definition, scope management, stakeholder needs, business rules, user stories, process mapping, data mapping, API requirement analysis and UAT planning. It is a learning portfolio project, not a production implementation or client engagement.</div><a class="button" href="../../index.html">Return to main portfolio</a></section>
+</main><footer class="footer"><div class="wrap">Food Delivery Order &amp; Payment System · Self-driven learning project · No production results claimed</div></footer>
+</body></html>
